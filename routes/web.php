@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Register Flow
-Route::get('/register', [RegisterController::class, 'showRegister'])->name('register');
+Route::get('/', [RegisterController::class, 'showRegister'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/verify-otp', [RegisterController::class, 'showOtpVerify'])->name('otp.verify');
