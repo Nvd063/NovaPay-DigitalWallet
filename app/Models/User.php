@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(VirtualCard::class);
     }
+    public function getAuthPassword()
+{
+    return $this->mpin;
+}
 }
