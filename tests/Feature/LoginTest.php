@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Illuminate\Support\Facades\Hash;
 
 class LoginTest extends TestCase
 {
@@ -18,12 +17,12 @@ class LoginTest extends TestCase
     {
         $user = User::factory()->create([
             'phone' => '03001234567',
-            'mpin' => bcrypt('1234'), // Ensure this is hashed
+            'mpin' => bcrypt('1234'), 
         ]);
 
         $response = $this->post('/login', [
             'phone' => '03001234567',
-            'mpin' => '1234', // 'password' ki jagah 'mpin' likhein agar controller yehi mang raha hai
+            'mpin' => '1234', 
         ]);
 
         $this->assertAuthenticatedAs($user);
